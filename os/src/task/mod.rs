@@ -155,11 +155,7 @@ impl TaskManager {
         let current=inner.current_task;
         let tcb=inner.tasks[current];
         let time_now=get_time_ms();
-        let mut syscall_times_cp:[u32;MAX_SYSCALL_NUM]=[0;MAX_SYSCALL_NUM];
-        for i in 0..tcb.syscall_times.len(){
-            syscall_times_cp[i]=tcb.syscall_times[i] as u32;
-        }
-        (TaskStatus::Running,syscall_times_cp,time_now-tcb.start_time)
+        (TaskStatus::Running,tcb.syscall_times,time_now-tcb.start_time)
     }
 }
 

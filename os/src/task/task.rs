@@ -11,7 +11,7 @@ pub struct TaskControlBlock {
     /// The task context
     pub task_cx: TaskContext,
     /// syscall times
-    pub syscall_times:[u8;MAX_SYSCALL_NUM],
+    pub syscall_times:[u32;MAX_SYSCALL_NUM],
     /// start time
     pub start_time:usize,
     /// started
